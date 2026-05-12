@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { tokens } from '../lib/tokens';
 
 const _line = { stroke: 'currentColor', fill: 'none', strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };

@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef, useReducer } from 'react';
+import { useEffect, useRef, useReducer } from 'react';
 import { Button } from '../components/Button';
 import { Icon } from '../components/Icon';
 import { ExerciseFigure } from '../components/ExerciseFigure';
 import { tokens } from '../lib/tokens';
-import { Workout, toDisplay, fromDisplay, displayStep, platesFor, REST_DEFAULTS } from '../lib/data';
+import { Workout, toDisplay, fromDisplay, displayStep, REST_DEFAULTS } from '../lib/data';
 import { Haptic, chime, fmtTime } from '../lib/utils';
 
 interface LogPageProps {
@@ -188,8 +188,8 @@ export function LogPage({ go, workout, setWorkout, unit }: LogPageProps) {
           setCount={ex.sets.length}
           doneCount={doneCount}
           unit={unit}
-          onWeight={(v) => updateSet({ weight: fromDisplay(v, unit) })}
-          onReps={(v) => updateSet({ reps: v })}
+          onWeight={(v: number) => updateSet({ weight: fromDisplay(v, unit) })}
+          onReps={(v: number) => updateSet({ reps: v })}
           onComplete={completeSet}
           restLeft={restLeft}
           onSkipRest={skipRest}
@@ -202,7 +202,7 @@ export function LogPage({ go, workout, setWorkout, unit }: LogPageProps) {
 function ExerciseProgress({ exercises, current }: { exercises: any[]; current: number }) {
   return (
     <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
-      {exercises.map((ex, i) => (
+      {exercises.map((_, i) => (
         <div
           key={i}
           style={{

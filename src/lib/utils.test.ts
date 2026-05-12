@@ -5,7 +5,7 @@ describe('utils', () => {
   describe('Haptic', () => {
     beforeEach(() => {
       // Mock navigator.vibrate
-      global.navigator.vibrate = vi.fn();
+      (globalThis.navigator as any).vibrate = vi.fn();
     });
 
     afterEach(() => {
@@ -28,14 +28,13 @@ describe('utils', () => {
     });
 
     it('should not throw if vibrate is not supported', () => {
-      (global.navigator.vibrate as any) = undefined;
+      (globalThis.navigator as any).vibrate = undefined;
       expect(() => Haptic.light()).not.toThrow();
     });
   });
 
   describe('chime', () => {
     it('should create and play audio chime', () => {
-      const mockPlay = vi.fn();
       const mockOscillator = {
         connect: vi.fn(),
         start: vi.fn(),
@@ -53,7 +52,7 @@ describe('utils', () => {
         currentTime: 0,
       };
 
-      global.AudioContext = vi.fn(() => mockContext) as any;
+      (globalThis as any).AudioContext = vi.fn(() => mockContext) as any;
 
       chime();
 

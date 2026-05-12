@@ -3,7 +3,7 @@ import { Button } from '../components/Button';
 import { tokens } from '../lib/tokens';
 
 interface HomePageProps {
-  go: (route: string) => void;
+  go: (route: any) => void;
   state: 'planned' | 'rest' | 'none';
   workoutActive: boolean;
 }
@@ -73,7 +73,7 @@ export function HomePage({ go, state, workoutActive }: HomePageProps) {
   );
 }
 
-function PlannedToday({ go }: { go: (route: string) => void }) {
+function PlannedToday({ go }: { go: (route: any) => void }) {
   return (
     <>
       <div style={{
@@ -133,7 +133,7 @@ function PlannedToday({ go }: { go: (route: string) => void }) {
   );
 }
 
-function RestToday({ go }: { go: (route: string) => void }) {
+function RestToday({ go }: { go: (route: any) => void }) {
   return (
     <>
       <div style={{
@@ -178,7 +178,7 @@ function RestToday({ go }: { go: (route: string) => void }) {
   );
 }
 
-function NoPlanToday({ go }: { go: (route: string) => void }) {
+function NoPlanToday({ go }: { go: (route: any) => void }) {
   return (
     <>
       <h1 style={{

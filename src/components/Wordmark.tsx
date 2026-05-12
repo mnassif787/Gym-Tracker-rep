@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+
 import { tokens } from '../lib/tokens';
 
 interface WordmarkProps {

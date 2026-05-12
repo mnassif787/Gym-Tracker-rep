@@ -1,4 +1,4 @@
-import { useState, CSSProperties } from 'react';
+import { useState } from 'react';
 import { tokens } from './lib/tokens';
 import { Workout, makeWorkout, ReadyPlan } from './lib/data';
 import { HomePage } from './pages/HomePage';
@@ -15,8 +15,8 @@ function App() {
   const [route, setRoute] = useState<Route>('home');
   const [plan, setPlan] = useState<ReadyPlan | null>(null);
   const [workout, setWorkout] = useState<Workout | null>(null);
-  const [unit, setUnit] = useState<'kg' | 'lb'>('kg');
-  const [todayState, setTodayState] = useState<'planned' | 'rest' | 'none'>('planned');
+  const [unit] = useState<'kg' | 'lb'>('kg');
+  const [todayState] = useState<'planned' | 'rest' | 'none'>('planned');
 
   const go = (r: Route) => {
     if (r === 'log' && !workout) setWorkout(makeWorkout());

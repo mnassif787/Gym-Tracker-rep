@@ -5,11 +5,11 @@ import { tokens } from '../lib/tokens';
 import { READY_PLANS, ReadyPlan } from '../lib/data';
 
 interface TemplatesPageProps {
-  go: (route: string) => void;
+  go: (route: any) => void;
   openPlan: (plan: ReadyPlan) => void;
 }
 
-export function TemplatesPage({ go, openPlan }: TemplatesPageProps) {
+export function TemplatesPage({ openPlan }: TemplatesPageProps) {
   return (
     <div style={{ paddingBottom: 100 }}>
       <div style={{ padding: '14px 22px 6px' }}>

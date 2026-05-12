@@ -3,7 +3,7 @@ import { Icon } from './Icon';
 
 interface TabBarProps {
   active: string;
-  go: (route: string) => void;
+  go: (route: any) => void;
 }
 
 export function TabBar({ active, go }: TabBarProps) {
